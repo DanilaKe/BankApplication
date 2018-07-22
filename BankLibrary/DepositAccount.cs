@@ -4,6 +4,7 @@
     {
         public DepositAccount(double sum, int percentage) : base(sum, percentage)
         {
+            _counterOfTheDays++;
         }
 
         protected internal override void Open()

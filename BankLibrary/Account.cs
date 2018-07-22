@@ -1,4 +1,7 @@
-﻿namespace BankLibrary
+﻿using System;
+using System.Numerics;
+
+namespace BankLibrary
 {
     public abstract class Account : IAccount
     {
@@ -22,9 +25,9 @@
         public Account(double sum, int percentage)
         {
             _sum = sum;
-            _percentage = percentage;
+            _percentage = percentage;                  
             _id=++counter;
-            id = GetHashCode();
+            id = Math.Abs(GetHashCode());
         }
 
         private void CallEvent(AccountEventArgs e, AccountStateHandler handler)

@@ -8,7 +8,7 @@ namespace BankLibrary
 {
     public delegate void AccountStateHandler(object sender, AccountEventArgs e);
  
-    public class AccountEventArgs
+    public class AccountEventArgs : EventArgs
     {
         public string Message { get; }
         public double Sum { get; }
