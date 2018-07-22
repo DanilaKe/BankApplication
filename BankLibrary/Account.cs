@@ -2,9 +2,9 @@
 {
     public abstract class Account : IAccount
     {
-        protected internal event AccountStateHandler Withdrawend;
+        protected internal event AccountStateHandler Withdrawed;
         protected internal event AccountStateHandler Added;
-        protected internal event AccountStateHandler Opeded;
+        protected internal event AccountStateHandler Opened;
         protected internal event AccountStateHandler Closed;
         protected internal event AccountStateHandler Calculated;
 
@@ -17,7 +17,7 @@
 
         public double CurrentSum => _sum;
         public int Percentage => _percentage;
-        public uint Id => _id;
+        public int Id => id;
         
         public Account(double sum, int percentage)
         {
@@ -35,12 +35,12 @@
 
         protected virtual void OnOpened(AccountEventArgs e)
         {
-            CallEvent(e,Opeded);
+            CallEvent(e,Opened);
         }
 
         protected virtual void OnWithdrawend(AccountEventArgs e)
         {
-            CallEvent(e,Withdrawend);
+            CallEvent(e,Withdrawed);
         }
         
         protected virtual void OnAdded(AccountEventArgs e)

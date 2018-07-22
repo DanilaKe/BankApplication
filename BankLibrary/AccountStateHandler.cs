@@ -14,7 +14,7 @@ namespace BankLibrary
         public double Sum { get; }
  
         public AccountEventArgs(string _mes, double _sum)
-        {
+        {    
             Message = _mes;
             Sum = _sum;
         }
