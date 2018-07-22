@@ -24,6 +24,7 @@
             _sum = sum;
             _percentage = percentage;
             _id=++counter;
+            id = GetHashCode();
         }
 
         private void CallEvent(AccountEventArgs e, AccountStateHandler handler)
@@ -75,12 +76,9 @@
                 OnWithdrawend(new AccountEventArgs($"Not enough money on account number {id}",0));
         }
 
-        public virtual void Open()
-        {
-            OnOpened(new AccountEventArgs(" ", this._sum));
-        }
+        protected internal abstract void Open();
 
-        public virtual void Close()
+        protected internal virtual void Close()
         {
             OnClosed(new AccountEventArgs($"Account {id} is closed. Total amount: {this._sum}", this._sum));
         }
