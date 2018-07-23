@@ -76,6 +76,7 @@ namespace BankLibrary
                 throw new Exception("Счет не найден");
             if (account2 == null)
                 throw new Exception("Счет не найден");
+            if (!(account1.CurrentSum >= sum)) return;
             account1.Withdraw(sum);
             account2.Put(sum);
         }

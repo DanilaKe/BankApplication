@@ -47,6 +47,7 @@ namespace BankApplication
         
         protected void ButtonTransferClicked(object sender, EventArgs a)
         {
+            Transfer();
         }
         
         protected void ButtonExitClicked(object sender, EventArgs a)
@@ -67,6 +68,11 @@ namespace BankApplication
         private static void Put()
         {
             new Put(bank);
+        }
+        
+        private static void Transfer()
+        {
+            new Transfer(bank);
         }
  
         private static void CloseAccount()
