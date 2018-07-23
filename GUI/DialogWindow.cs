@@ -4,16 +4,13 @@ using System;
 
 namespace BankApplication
 {
-    public class DialogWindow : Gtk.Window
+    public class DialogWindow 
     {
+    
         [Builder.Object] private TextBuffer textbuffer1;
         Builder Gui = new Builder();
 
-        public DialogWindow(string title) : base(title)
-        {
-        }
-
-        public DialogWindow(AccountEventArgs e,string title) : base(title)
+        public DialogWindow(AccountEventArgs e) 
         {
             Gtk.Application.Init();
             Gui.AddFromFile(

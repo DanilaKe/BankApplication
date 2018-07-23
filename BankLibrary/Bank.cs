@@ -17,7 +17,7 @@ namespace BankLibrary
         public void Open(AccountType accountType, double sum, 
             AccountStateHandler addSumHandler, AccountStateHandler withdrawSumHandler,
             AccountStateHandler calculationHandler, AccountStateHandler closeAccountHandler, 
-            AccountStateHandler openAccountHandler)
+            AccountStateHandler openAccountHandler, AccountStateHandler transferHandler)
         {
             T newAccount = null;
      
@@ -48,6 +48,7 @@ namespace BankLibrary
             newAccount.Closed += closeAccountHandler;
             newAccount.Opened += openAccountHandler;
             newAccount.Calculated += calculationHandler;
+            newAccount.Transfered += transferHandler;
      
             newAccount.Open();
         }

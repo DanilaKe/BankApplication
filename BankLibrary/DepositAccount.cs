@@ -28,10 +28,10 @@
                 base.OnWithdrawend(new AccountEventArgs("You can withdraw funds only after a 30-day period", 0));
         }
 
-        public override void Transfered(double sum)
+        public override void Transfer(double sum)
         {
             if (_counterOfTheDays % 30 == 0)
-                base.Transfered(sum);
+                base.Transfer(sum);
             else
                 base.OnTransfer(new AccountEventArgs("You can withdraw funds only after a 30-day period", 0));
         }

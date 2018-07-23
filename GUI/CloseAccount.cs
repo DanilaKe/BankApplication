@@ -19,7 +19,6 @@ namespace BankApplication
             Gui.AddFromFile(
                 "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/CloseAccount.glade");
             Gui.Autoconnect(this);
-            Gtk.Application.Run();
         }
         
         protected void ButtonOK(object sender, EventArgs a)

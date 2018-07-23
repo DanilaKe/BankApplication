@@ -33,7 +33,8 @@ namespace BankApplication
                 WithdrawSumHandler, 
                 (o, e) => Console.WriteLine(e.Message), 
                 CloseAccountHandler, 
-                OpenAccountHandler); 
+                OpenAccountHandler,
+                TransferHandler); 
         }
         
         protected void RadioButton1(object sender, EventArgs a)
@@ -48,23 +49,27 @@ namespace BankApplication
         
         private static void OpenAccountHandler(object sender, AccountEventArgs e)
         {
-            DialogWindow a = new DialogWindow(e,"Opened");
-            a.Destroy();
+            new DialogWindow(e);
         }
         
         private static void AddSumHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e,"Added");
+            new DialogWindow(e);
         }
         
         private static void WithdrawSumHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e,"Withdrawen");
+            new DialogWindow(e);
         }
         
         private static void CloseAccountHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e,"Close");
+            new DialogWindow(e);
+        }
+        
+        private static void TransferHandler(object sender, AccountEventArgs e)
+        {
+            new DialogWindow(e);
         }
     }
 }

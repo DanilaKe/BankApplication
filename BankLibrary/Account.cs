@@ -11,7 +11,7 @@ namespace BankLibrary
         protected internal event AccountStateHandler Opened;
         protected internal event AccountStateHandler Closed;
         protected internal event AccountStateHandler Calculated;
-        protected internal event AccountStateHandler Transfer;
+        protected internal event AccountStateHandler Transfered;
         protected internal event AccountStateHandler View;
 
         protected uint _id ;
@@ -67,7 +67,7 @@ namespace BankLibrary
         
         protected virtual void OnTransfer(AccountEventArgs e)
         {
-            CallEvent(e, Transfer);
+            CallEvent(e, Transfered);
         }
         
         protected virtual void OnView(AccountEventArgs e)
@@ -81,7 +81,7 @@ namespace BankLibrary
             OnAdded(new AccountEventArgs($"The account received $ {sum}", sum));
         }
         
-        public virtual void Transfered(double sum)
+        public virtual void Transfer(double sum)
         {
             if (sum <= this._sum)
             {

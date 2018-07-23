@@ -9,7 +9,7 @@
     <property name="page_increment">10</property>
   </object>
   <object class="GtkTextBuffer" id="textbuffer1">
-    <property name="text" translatable="yes">ftjfgnjfgthjf</property>
+    <property name="text" translatable="yes"></property>
   </object>
   <object class="GtkApplicationWindow">
     <property name="visible">True</property>
