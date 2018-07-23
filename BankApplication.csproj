@@ -67,8 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GUI\CloseAccount.cs" />
+    <Compile Include="GUI\DialogWindow.cs" />
     <Compile Include="GUI\MainWindow.cs" />
     <Compile Include="GUI\OpenAccount.cs" />
+    <Compile Include="GUI\Put.cs" />
     <Compile Include="GUI\Withdraw.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,7 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GUI\CloseAccount.glade" />
+    <Content Include="GUI\DialogWindow.glade" />
     <Content Include="GUI\OpenAccount.glade" />
+    <Content Include="GUI\Put.glade" />
     <Content Include="GUI\Withdraw.glade" />
   </ItemGroup>
   <ItemGroup>

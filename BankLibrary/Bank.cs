@@ -68,6 +68,18 @@ namespace BankLibrary
             account.Withdraw(sum);
         }
         
+        public void Transfer(double sum, int id1, int id2)
+        {
+            T account1 = FindAccount(id1);
+            T account2 = FindAccount(id2);
+            if (account1 == null)
+                throw new Exception("Счет не найден");
+            if (account2 == null)
+                throw new Exception("Счет не найден");
+            account1.Withdraw(sum);
+            account2.Put(sum);
+        }
+        
         public void Close(int id)
         {
             int index;

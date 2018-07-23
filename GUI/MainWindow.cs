@@ -66,11 +66,7 @@ namespace BankApplication
  
         private static void Put()
         {
-            Console.WriteLine("Укажите сумму, чтобы положить на счет:");
-            double sum = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Введите Id счета:");
-            int id = Convert.ToInt32(Console.ReadLine());
-            bank.Put(sum, id);
+            new Put(bank);
         }
  
         private static void CloseAccount()

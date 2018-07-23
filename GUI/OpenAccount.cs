@@ -22,7 +22,6 @@ namespace BankApplication
             Gui.AddFromFile(
                 "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/OpenAccount.glade");
             Gui.Autoconnect(this);
-            Gtk.Application.Run();
         }
         
         protected void ButtonOK(object sender, EventArgs a)
@@ -49,24 +48,23 @@ namespace BankApplication
         
         private static void OpenAccountHandler(object sender, AccountEventArgs e)
         {
-            Console.WriteLine(e.Message);
+            DialogWindow a = new DialogWindow(e,"Opened");
+            a.Destroy();
         }
         
         private static void AddSumHandler(object sender, AccountEventArgs e)
         {
-            Console.WriteLine(e.Message);
+            new DialogWindow(e,"Added");
         }
         
         private static void WithdrawSumHandler(object sender, AccountEventArgs e)
         {
-            Console.WriteLine(e.Message);
-            if (e.Sum > 0)
-                Console.WriteLine("Идем тратить деньги");
+            new DialogWindow(e,"Withdrawen");
         }
         
         private static void CloseAccountHandler(object sender, AccountEventArgs e)
         {
-            Console.WriteLine(e.Message);
+            new DialogWindow(e,"Close");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using System.Numerics;
 
 namespace BankLibrary
@@ -10,6 +11,8 @@ namespace BankLibrary
         protected internal event AccountStateHandler Opened;
         protected internal event AccountStateHandler Closed;
         protected internal event AccountStateHandler Calculated;
+        protected internal event AccountStateHandler Transfer;
+        protected internal event AccountStateHandler View;
 
         protected uint _id ;
         protected int id;
@@ -21,7 +24,8 @@ namespace BankLibrary
         public double CurrentSum => _sum;
         public int Percentage => _percentage;
         public int Id => id;
-        
+        public string Info { get; set; }
+
         public Account(double sum, int percentage)
         {
             _sum = sum;
@@ -60,8 +64,35 @@ namespace BankLibrary
         {
             CallEvent(e, Calculated);
         }
+        
+        protected virtual void OnTransfer(AccountEventArgs e)
+        {
+            CallEvent(e, Transfer);
+        }
+        
+        protected virtual void OnView(AccountEventArgs e)
+        {
+            CallEvent(e, View);
+        }
 
         public virtual void Put(double sum)
+        {
+            this._sum += sum;
+            OnAdded(new AccountEventArgs($"The account received $ {sum}", sum));
+        }
+        
+        public virtual void Transfered(double sum)
+        {
+            if (sum <= this._sum)
+            {
+                _sum -= sum;
+                OnTransfer(new AccountEventArgs($"{sum} $ withdrawn from account number {id}",sum)); 
+            }
+            else
+                OnTransfer(new AccountEventArgs($"Not enough money on account number {id}",0));
+        }
+        
+        public virtual void Viewed(double sum)
         {
             this._sum += sum;
             OnAdded(new AccountEventArgs($"The account received $ {sum}", sum));
