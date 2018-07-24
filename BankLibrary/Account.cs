@@ -24,6 +24,7 @@ namespace BankLibrary
         public double CurrentSum => _sum;
         public int Percentage => _percentage;
         public int Id => id;
+        public uint Day => _counterOfTheDays;
         public string Info { get; set; }
 
         public Account(double sum, int percentage)

@@ -20,17 +20,31 @@ namespace BankApplication
             bank = _bank;
             Gtk.Application.Init();
             Builder Gui = new Builder();
-            Gui.AddFromFile(
-                "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/Transfer.glade");
-            Gui.Autoconnect(this);
+            try
+            {
+                Gui.AddFromFile(
+                    "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/Transfer.glade");
+                Gui.Autoconnect(this);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
         
         protected void ButtonOK(object sender, EventArgs a)
         {
-            var sum = Convert.ToDouble(textbuffer3.Text);
-            var id1 = Convert.ToInt32(textbuffer1.Text);
-            var id2 = Convert.ToInt32(textbuffer2.Text);
-            bank.Transfer(sum, id1, id2);
+            try
+            {
+                var sum = Convert.ToDouble(textbuffer3.Text);
+                var id1 = Convert.ToInt32(textbuffer1.Text);
+                var id2 = Convert.ToInt32(textbuffer2.Text);
+                bank.Transfer(sum, id1, id2);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }

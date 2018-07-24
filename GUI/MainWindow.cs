@@ -14,10 +14,17 @@ namespace BankApplication
         {
             Gtk.Application.Init();
             Builder Gui = new Builder();
-            Gui.AddFromFile(
-                "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/MainWindow.glade");
-            Gui.Autoconnect(this);
-            Gtk.Application.Run();
+            try
+            {
+                Gui.AddFromFile(
+                    "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/MainWindow.glade");
+                Gui.Autoconnect(this);
+                Gtk.Application.Run();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
        

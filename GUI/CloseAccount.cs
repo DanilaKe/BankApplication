@@ -16,15 +16,29 @@ namespace BankApplication
             bank = _bank;
             Gtk.Application.Init();
             Builder Gui = new Builder();
-            Gui.AddFromFile(
-                "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/CloseAccount.glade");
-            Gui.Autoconnect(this);
+            try
+            {
+                Gui.AddFromFile(
+                    "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/CloseAccount.glade");
+                Gui.Autoconnect(this);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
         
         protected void ButtonOK(object sender, EventArgs a)
         {
-            var id = Convert.ToInt32(textbuffer1.Text);
-            bank.Close(id);
+            try
+            {
+                var id = Convert.ToInt32(textbuffer1.Text);
+                bank.Close(id);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }

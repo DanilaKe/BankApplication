@@ -77,7 +77,16 @@ namespace BankLibrary
                 throw new Exception("Счет не найден");
             if (account2 == null)
                 throw new Exception("Счет не найден");
-            if (!(account1.CurrentSum >= sum)) return;
+            if (!(account1.CurrentSum >= sum))
+                return;
+            if (
+                !(
+                    (account1.GetType() == typeof(DepositAccount)) && (account1.Day % 30 == 0) ||
+                    (account2.GetType() == typeof(DepositAccount)) && (account2.Day % 30 == 0) ||
+                    ((account1.GetType() == typeof(DemandAccount)) && (account2.GetType() == typeof(DemandAccount)))
+                 )
+               )
+                return;
             account1.Withdraw(sum);
             account2.Put(sum);
         }

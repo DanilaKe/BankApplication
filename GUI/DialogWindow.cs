@@ -13,10 +13,17 @@ namespace BankApplication
         public DialogWindow(AccountEventArgs e) 
         {
             Gtk.Application.Init();
-            Gui.AddFromFile(
-                "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/DialogWindow.glade");
-            Gui.Autoconnect(this);
-            textbuffer1.Text = e.Message;
+            try
+            {
+                Gui.AddFromFile(
+                    "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/DialogWindow.glade");
+                Gui.Autoconnect(this);
+                textbuffer1.Text = e.Message;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }  
 
     }

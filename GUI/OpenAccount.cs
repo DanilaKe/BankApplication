@@ -19,22 +19,36 @@ namespace BankApplication
             bank = _bank;
             Gtk.Application.Init();
             Builder Gui = new Builder();
-            Gui.AddFromFile(
-                "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/OpenAccount.glade");
-            Gui.Autoconnect(this);
+            try
+            {
+                Gui.AddFromFile(
+                    "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/OpenAccount.glade");
+                Gui.Autoconnect(this);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
         
         protected void ButtonOK(object sender, EventArgs a)
         {
-            sum = Convert.ToDouble(textbuffer1.Text);
-            bank.Open(accountType,
-                sum,
-                AddSumHandler,  
-                WithdrawSumHandler, 
-                (o, e) => Console.WriteLine(e.Message), 
-                CloseAccountHandler, 
-                OpenAccountHandler,
-                TransferHandler); 
+            try
+            {
+                sum = Convert.ToDouble(textbuffer1.Text);
+                bank.Open(accountType,
+                    sum,
+                    AddSumHandler,  
+                    WithdrawSumHandler, 
+                    (o, e) => Console.WriteLine(e.Message), 
+                    CloseAccountHandler, 
+                    OpenAccountHandler,
+                    TransferHandler); 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
         
         protected void RadioButton1(object sender, EventArgs a)
