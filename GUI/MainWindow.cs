@@ -6,27 +6,47 @@ namespace BankApplication
 {
     class MainWindow 
     {
-        [Builder.Object]
-        private TextBuffer textbuffer1;
-        static Bank<Account> bank = new Bank<Account>("ЮнитБанк");
+        [Builder.Object] private TextBuffer textbuffer1;
+        [Builder.Object] private AboutDialog AboutDialog1;
+        [Builder.Object] private ApplicationWindow ApplicationWindow1;
+        [Builder.Object] private Dialog Dialog1;
+        [Builder.Object] private Entry Entry1;
         
-        public MainWindow() 
+        static Bank<Account> bank;
+        string nameBank = "";
+        
+        public MainWindow()
         {
             Gtk.Application.Init();
             Builder Gui = new Builder();
             try
             {
                 Gui.AddFromFile(
+                    "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/BankName.glade");
+                Gui.Autoconnect(this);
+                Gui.AddFromFile(
                     "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/MainWindow.glade");
                 Gui.Autoconnect(this);
-                Gtk.Application.Run();
+                Application.Run();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
-
+        
+        protected void  ButtonCreate(object sender, EventArgs a)
+        {
+            nameBank = Entry1.Text;
+            Dialog1.Visible = false;
+            ApplicationWindow1.Visible = true;
+            bank = new Bank<Account>(nameBank);
+        }
+        
+        protected void  ButtonExit(object sender, EventArgs a)
+        {
+            Application.Quit();
+        }
        
         protected void ButtonOpenClicked(object sender, EventArgs a)
         {
@@ -63,9 +83,20 @@ namespace BankApplication
             Transfer();
         }
         
-        protected void ButtonExitClicked(object sender, EventArgs a)
+        protected void menuFileNew(object sender, EventArgs a)
+        {
+            new MainWindow();
+            Gtk.Application.Quit();
+        }
+        
+        protected void menuExit(object sender, EventArgs a)
         {
             Gtk.Application.Quit();
+        }
+        
+        protected void menuInfoAbout(object sender, EventArgs a)
+        {
+            AboutDialog1.Visible = true;
         }
         
         private static void OpenAccount()

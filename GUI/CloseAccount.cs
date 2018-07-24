@@ -7,7 +7,9 @@ namespace BankApplication
     public class CloseAccount
     {
         [Builder.Object]
-        private TextBuffer textbuffer1;
+        private Entry Entry1;
+
+        [Builder.Object] private ApplicationWindow ApplicationWindow1;
         
         private Bank<Account> bank;
         
@@ -32,13 +34,18 @@ namespace BankApplication
         {
             try
             {
-                var id = Convert.ToInt32(textbuffer1.Text);
+                var id = Convert.ToInt32(Entry1.Text);
                 bank.Close(id);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
+        
+        protected void ButtonExit(object sender, EventArgs a)
+        {
+            ApplicationWindow1.Visible = false;
         }
     }
 }
