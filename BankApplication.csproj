@@ -72,6 +72,7 @@
     <Compile Include="GUI\OpenAccount.cs" />
     <Compile Include="GUI\Put.cs" />
     <Compile Include="GUI\Transfer.cs" />
+    <Compile Include="GUI\View.cs" />
     <Compile Include="GUI\Withdraw.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +92,7 @@
     <Content Include="GUI\OpenAccount.glade" />
     <Content Include="GUI\Put.glade" />
     <Content Include="GUI\Transfer.glade" />
+    <Content Include="GUI\View.glade" />
     <Content Include="GUI\Withdraw.glade" />
   </ItemGroup>
   <ItemGroup>

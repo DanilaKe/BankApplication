@@ -69,6 +69,20 @@ namespace BankLibrary
             account.Withdraw(sum);
         }
         
+        public string View()
+        {
+            var result = "";
+            foreach (var i in accounts)
+            {
+                i.View();
+                result = $"{result} -----------------------------------------------------------------------\n";
+                result = $"{result} {i.Info}";    
+                result = $"{result} -----------------------------------------------------------------------\n";
+            }
+
+            return result;
+        }
+        
         public void Transfer(double sum, int id1, int id2)
         {
             T account1 = FindAccount(id1);

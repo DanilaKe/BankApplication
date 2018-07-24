@@ -12,7 +12,7 @@ namespace BankLibrary
         protected internal event AccountStateHandler Closed;
         protected internal event AccountStateHandler Calculated;
         protected internal event AccountStateHandler Transfered;
-        protected internal event AccountStateHandler View;
+        protected internal event AccountStateHandler Viewed;
 
         protected uint _id ;
         protected int id;
@@ -71,9 +71,9 @@ namespace BankLibrary
             CallEvent(e, Transfered);
         }
         
-        protected virtual void OnView(AccountEventArgs e)
+        protected virtual void OnViewed(AccountEventArgs e)
         {
-            CallEvent(e, View);
+            CallEvent(e, Viewed);
         }
 
         public virtual void Put(double sum)
@@ -86,18 +86,13 @@ namespace BankLibrary
         {
             if (sum <= this._sum)
             {
-                _sum -= sum;
                 OnTransfer(new AccountEventArgs($"{sum} $ withdrawn from account number {id}",sum)); 
             }
             else
                 OnTransfer(new AccountEventArgs($"Not enough money on account number {id}",0));
         }
-        
-        public virtual void Viewed(double sum)
-        {
-            this._sum += sum;
-            OnAdded(new AccountEventArgs($"The account received $ {sum}", sum));
-        }
+
+        public abstract void View();
 
         public virtual void Withdraw(double sum)
         {

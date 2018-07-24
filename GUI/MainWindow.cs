@@ -50,6 +50,12 @@ namespace BankApplication
         
         protected void ButtonNextDayClicked(object sender, EventArgs a)
         {
+            bank.CalculatePercentage();
+        }
+        
+        protected void ButtonView(object sender, EventArgs a)
+        {
+            ViewWindow();
         }
         
         protected void ButtonTransferClicked(object sender, EventArgs a)
@@ -85,6 +91,11 @@ namespace BankApplication
         private static void CloseAccount()
         {
             new CloseAccount(bank);
+        }
+        
+        private static void ViewWindow()
+        {
+            new View(bank);
         }
     }
 }
