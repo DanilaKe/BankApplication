@@ -6,11 +6,10 @@ namespace BankApplication
 {
     public class Put
     {
-        [Builder.Object]
-        private TextBuffer textbuffer1;
-        [Builder.Object]
-        private TextBuffer textbuffer2;
-        
+        [Builder.Object] private Entry Entry1;
+        [Builder.Object] private Entry Entry2;
+        [Builder.Object] private Window Window1;
+
         private Bank<Account> bank;
         
         public Put(Bank<Account> _bank)
@@ -30,18 +29,23 @@ namespace BankApplication
             }
         }
         
-        protected void ButtonOK(object sender, EventArgs a)
+        protected void ButtonPut(object sender, EventArgs a)
         {
             try
             {
-                var sum = Convert.ToDouble(textbuffer2.Text);
-                var id = Convert.ToInt32(textbuffer1.Text);
+                var sum = Convert.ToDouble(Entry2.Text);
+                var id = Convert.ToInt32(Entry1.Text);
                 bank.Put(sum, id);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
+        
+        protected void ButtonExit(object sender, EventArgs a)
+        {
+            Window1.Visible = false;
         }
     }
 }
