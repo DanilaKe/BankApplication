@@ -7,6 +7,7 @@ namespace BankApplication
     class View
     {
         [Builder.Object] private TextBuffer textbuffer1;
+        [Builder.Object] private Dialog Dialog1;
         
         private Bank<Account> bank;
 
@@ -21,11 +22,29 @@ namespace BankApplication
                     "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/View.glade");
                 Gui.Autoconnect(this);
                 textbuffer1.Text = bank.View();
+                Dialog1.Visible = true;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
+        
+        protected void ButtonUpdate(object sender, EventArgs a)
+        {
+            try
+            {
+                textbuffer1.Text = bank.View();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        
+        protected void ButtonExit(object sender, EventArgs a)
+        {
+            Dialog1.Visible = false;
         }
     }
 }

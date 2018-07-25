@@ -7,9 +7,9 @@ namespace BankApplication
     public class OpenAccount
     {
         
-        [Builder.Object]
-        private TextBuffer textbuffer1;
-        
+        [Builder.Object] private Entry Entry1;
+        [Builder.Object] private ApplicationWindow ApplicationWindow1;
+
         private Bank<Account> bank;
         private double sum;
         AccountType accountType = AccountType.Ordinary;
@@ -31,11 +31,11 @@ namespace BankApplication
             }
         }
         
-        protected void ButtonOK(object sender, EventArgs a)
+        protected void ButtonOpen(object sender, EventArgs a)
         {
             try
             {
-                sum = Convert.ToDouble(textbuffer1.Text);
+                sum = Convert.ToDouble(Entry1.Text);
                 bank.Open(accountType,
                     sum,
                     AddSumHandler,  
@@ -49,6 +49,11 @@ namespace BankApplication
             {
                 Console.WriteLine(e);
             }
+        }
+        
+        protected void ButtonExit(object sender, EventArgs a)
+        {
+            ApplicationWindow1.Visible = false;
         }
         
         protected void RadioButton1(object sender, EventArgs a)

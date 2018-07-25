@@ -76,9 +76,10 @@ namespace BankLibrary
             {
                 i.View();
                 result = $"{result} -----------------------------------------------------------------------\n";
-                result = $"{result} {i.Info}";    
-                result = $"{result} -----------------------------------------------------------------------\n";
+                result = $"{result} Bank name : {this.Name}\n";
+                result = $"{result} {i.Info}";
             }
+            result = $"{result} -----------------------------------------------------------------------\n";
 
             return result;
         }

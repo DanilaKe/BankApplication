@@ -45,7 +45,7 @@
         public override void View()
         {
             Info = $"Deposit account id: {id}\n" +
-                   $"Account counter : {Id}\n" +
+                   $"Account counter : {_Id}\n" +
                    $"Current Sum : {CurrentSum}\n" +
                    $"Percentage : {Percentage} %\n" +
                    $"Days have passed since the account was opened : {_counterOfTheDays}\n";
