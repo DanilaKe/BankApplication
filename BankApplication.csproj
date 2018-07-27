@@ -87,6 +87,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GUI\BankName.glade" />
     <Content Include="GUI\CloseAccount.glade" />
     <Content Include="GUI\DialogWindow.glade" />
     <Content Include="GUI\OpenAccount.glade" />

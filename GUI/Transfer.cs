@@ -6,12 +6,10 @@ namespace BankApplication
 {
     public class Transfer
     {
-        [Builder.Object]
-        private TextBuffer textbuffer1;
-        [Builder.Object]
-        private TextBuffer textbuffer2;
-        [Builder.Object]
-        private TextBuffer textbuffer3;
+        [Builder.Object] private Entry Entry1;
+        [Builder.Object] private Entry Entry2;
+        [Builder.Object] private Entry Entry3;
+        [Builder.Object] private Window Window1;
         
         private Bank<Account> bank;
         
@@ -32,19 +30,24 @@ namespace BankApplication
             }
         }
         
-        protected void ButtonOK(object sender, EventArgs a)
+        protected void ButtonTransfer(object sender, EventArgs a)
         {
             try
             {
-                var sum = Convert.ToDouble(textbuffer3.Text);
-                var id1 = Convert.ToInt32(textbuffer1.Text);
-                var id2 = Convert.ToInt32(textbuffer2.Text);
+                var sum = Convert.ToDouble(Entry3.Text);
+                var id1 = Convert.ToInt32(Entry1.Text);
+                var id2 = Convert.ToInt32(Entry2.Text);
                 bank.Transfer(sum, id1, id2);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+        }
+        
+        protected void ButtonExit(object sender, EventArgs a)
+        {
+            Window1.Visible = false;
         }
     }
 }

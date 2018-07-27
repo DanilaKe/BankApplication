@@ -6,10 +6,9 @@ namespace BankApplication
 {
     public class Withdraw
     {
-        [Builder.Object]
-        private TextBuffer textbuffer1;
-        [Builder.Object]
-        private TextBuffer textbuffer2;
+        [Builder.Object] private Entry Entry1;
+        [Builder.Object] private Entry Entry2;
+        [Builder.Object] private ApplicationWindow ApplicationWindow1;
         
         private Bank<Account> bank;
         
@@ -30,12 +29,12 @@ namespace BankApplication
             }
         }
         
-        protected void ButtonOK(object sender, EventArgs a)
+        protected void ButtonWithdraw(object sender, EventArgs a)
         {
             try
             {
-                var sum = Convert.ToDouble(textbuffer2.Text);
-                var id = Convert.ToInt32(textbuffer1.Text);
+                var sum = Convert.ToDouble(Entry2.Text);
+                var id = Convert.ToInt32(Entry1.Text);
                 bank.Withdraw(sum, id);
             }
             catch (Exception e)
@@ -43,6 +42,11 @@ namespace BankApplication
                 Console.WriteLine(e);
                 throw;
             }
+        }
+        
+        protected void ButtonExit(object sender, EventArgs a)
+        {
+            ApplicationWindow1.Visible = false;
         }
     }
 }

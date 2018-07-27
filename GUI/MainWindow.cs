@@ -47,7 +47,7 @@ namespace BankApplication
         {
             Application.Quit();
         }
-       
+
         protected void ButtonOpenClicked(object sender, EventArgs a)
         {
             OpenAccount();
