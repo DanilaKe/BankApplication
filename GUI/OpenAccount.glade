@@ -217,6 +217,10 @@
                 <property name="can_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">3</property>
+                <property name="margin_right">6</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
                 <property name="use_stock">True</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="ButtonOpen" swapped="no"/>
@@ -233,7 +237,10 @@
                 <property name="can_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_right">6</property>
+                <property name="margin_left">6</property>
+                <property name="margin_right">3</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
                 <property name="use_stock">True</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="ButtonExit" swapped="no"/>
@@ -258,5 +265,4 @@
       </object>
     </child>
   </object>
-  <object class="GtkTextBuffer" id="textbuffer1"/>
 </interface>

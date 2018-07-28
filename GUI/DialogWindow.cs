@@ -21,7 +21,7 @@ namespace BankApplication
                 Gui.AddFromFile(
                     "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/DialogWindow.glade");
                 Gui.Autoconnect(this);
-                textbuffer1.Text = e.Message;
+                textbuffer1.Text = $"\n  {e.Message}  \n";
             }
             catch (Exception exception)
             {
@@ -36,7 +36,7 @@ namespace BankApplication
         
         public void VisibleWindow(AccountEventArgs e)
         {
-            textbuffer1.Text = e.Message;
+            textbuffer1.Text = $"\n  {e.Message}  \n";
             Dialog1.Visible = true;
         }
 
