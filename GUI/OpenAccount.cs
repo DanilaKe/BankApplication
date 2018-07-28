@@ -13,7 +13,9 @@ namespace BankApplication
         private Bank<Account> bank;
         private double sum;
         AccountType accountType = AccountType.Ordinary;
-        
+
+        public static DialogWindow dialogWindow { get; set; }
+
         public OpenAccount(Bank<Account> _bank)
         {
             bank = _bank;
@@ -68,27 +70,42 @@ namespace BankApplication
         
         private static void OpenAccountHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e);
+            if(dialogWindow == null)
+                dialogWindow = new DialogWindow(e);
+            else
+                dialogWindow.VisibleWindow(e);
         }
         
         private static void AddSumHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e);
+            if(dialogWindow == null)
+                dialogWindow = new DialogWindow(e);
+            else
+                dialogWindow.VisibleWindow(e);
         }
         
         private static void WithdrawSumHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e);
+            if(dialogWindow == null)
+                dialogWindow = new DialogWindow(e);
+            else
+                dialogWindow.VisibleWindow(e);
         }
         
         private static void CloseAccountHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e);
+            if(dialogWindow == null)
+                dialogWindow = new DialogWindow(e);
+            else
+                dialogWindow.VisibleWindow(e);
         }
         
         private static void TransferHandler(object sender, AccountEventArgs e)
         {
-            new DialogWindow(e);
+            if(dialogWindow == null)
+                dialogWindow = new DialogWindow(e);
+            else
+                dialogWindow.VisibleWindow(e);
         }
 
         public void VisibleWindow()
