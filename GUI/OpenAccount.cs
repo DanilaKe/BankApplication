@@ -108,6 +108,11 @@ namespace BankApplication
                 dialogWindow.VisibleWindow(e);
         }
 
+        protected static void CloseWindow(object sender, EventArgs e)
+        {
+            MainWindow.openAccount = null;
+        }
+        
         public void VisibleWindow()
         {
             ApplicationWindow1.Visible = true;
