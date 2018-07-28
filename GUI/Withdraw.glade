@@ -5,6 +5,7 @@
   <object class="GtkApplicationWindow" id="ApplicationWindow1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <signal name="destroy" handler="CloseWindow" swapped="no"/>
     <child>
       <object class="GtkGrid">
         <property name="visible">True</property>
@@ -13,7 +14,9 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Укажите сумму для вывода со счета:</property>
+            <property name="label" translatable="yes">
+  Укажите сумму для вывода со счета :  
+</property>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -24,7 +27,9 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Введите id счета:</property>
+            <property name="label" translatable="yes">
+  Введите id счета :  
+</property>
           </object>
           <packing>
             <property name="left_attach">0</property>
@@ -151,6 +156,10 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="margin_left">3</property>
+                <property name="margin_right">6</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
                 <property name="use_stock">True</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="ButtonWithdraw" swapped="no"/>
@@ -167,7 +176,9 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="margin_left">6</property>
-                <property name="margin_right">6</property>
+                <property name="margin_right">3</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
                 <property name="use_stock">True</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="ButtonExit" swapped="no"/>
@@ -187,9 +198,9 @@
           <object class="GtkEntry" id="Entry1">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="max_length">27</property>
-            <property name="width_chars">27</property>
-            <property name="max_width_chars">27</property>
+            <property name="max_length">24</property>
+            <property name="width_chars">24</property>
+            <property name="max_width_chars">24</property>
             <property name="placeholder_text" translatable="yes">ID счета</property>
           </object>
           <packing>
@@ -201,9 +212,9 @@
           <object class="GtkEntry">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="max_length">27</property>
-            <property name="width_chars">27</property>
-            <property name="max_width_chars">27</property>
+            <property name="max_length">24</property>
+            <property name="width_chars">24</property>
+            <property name="max_width_chars">24</property>
             <property name="placeholder_text" translatable="yes">Сумма</property>
           </object>
           <packing>

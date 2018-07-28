@@ -40,8 +40,12 @@ namespace BankApplication
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
             }
+        }
+
+        protected static void CloseWindow(object sender, EventArgs e)
+        {
+            MainWindow.withdraw = null;
         }
         
         protected void ButtonExit(object sender, EventArgs a)

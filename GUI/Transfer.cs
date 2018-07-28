@@ -45,6 +45,11 @@ namespace BankApplication
             }
         }
         
+        protected static void CloseWindow(object sender, EventArgs e)
+        {
+            MainWindow.transfer = null;
+        }
+        
         protected void ButtonExit(object sender, EventArgs a)
         {
             Window1.Visible = false;
