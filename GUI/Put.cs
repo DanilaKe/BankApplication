@@ -47,5 +47,10 @@ namespace BankApplication
         {
             Window1.Visible = false;
         }
+        
+        public void VisibleWindow()
+        {
+            Window1.Visible = true;
+        }
     }
 }

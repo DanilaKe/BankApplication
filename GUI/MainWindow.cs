@@ -14,11 +14,20 @@ namespace BankApplication
         
         static Bank<Account> bank;
         string nameBank = "";
+
+        public static OpenAccount openAccount { get; set; }
+        public static Withdraw withdraw{ get; set; }
+        public static Put put{ get; set; }
+        public static Transfer transfer{ get; set; }
+        public static CloseAccount closeAccount{ get; set; }
+        public static View view{ get; set; }
+
+        private Builder Gui;
         
         public MainWindow()
         {
             Gtk.Application.Init();
-            Builder Gui = new Builder();
+            Gui = new Builder();
             try
             {
                 Gui.AddFromFile(
@@ -86,7 +95,6 @@ namespace BankApplication
         protected void menuFileNew(object sender, EventArgs a)
         {
             new MainWindow();
-            Gtk.Application.Quit();
         }
         
         protected void menuExit(object sender, EventArgs a)
@@ -101,32 +109,62 @@ namespace BankApplication
         
         private static void OpenAccount()
         {
-            new OpenAccount(bank);
+            if(openAccount == null)
+                openAccount = new OpenAccount(bank);
+            else
+                openAccount.VisibleWindow();
         }
  
         private static void Withdraw()
         {
-            new Withdraw(bank);
+            if(withdraw == null)
+                withdraw = new Withdraw(bank);
+            else
+                withdraw.VisibleWindow();
         }
  
         private static void Put()
         {
-            new Put(bank);
+            if(put == null)
+                put = new Put(bank);
+            else
+                put.VisibleWindow();
         }
         
         private static void Transfer()
         {
-            new Transfer(bank);
+            if(transfer == null)
+                transfer = new Transfer(bank);
+            else
+                transfer.VisibleWindow();
         }
  
         private static void CloseAccount()
         {
-            new CloseAccount(bank);
+            if(closeAccount == null)
+                closeAccount = new CloseAccount(bank);
+            else
+                closeAccount.VisibleWindow();
         }
         
         private static void ViewWindow()
         {
-            new View(bank);
+            if(view == null)
+                view =new View(bank);
+            else
+                view.VisibleWindow();
+        }
+
+        protected void CloseWindow(object sender, EventArgs e)
+        {
+            Application.Quit();
+        }
+
+        protected void CloseAboutWindow(object sender, EventArgs e)
+        {
+            Gui.AddFromFile(
+                "/home/danila/Documents/VisualCode/cSharp/BankApplication/BankApplication/GUI/MainWindow.glade");
+            Gui.Autoconnect(this);
         }
     }
 }

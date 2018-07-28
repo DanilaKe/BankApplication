@@ -47,5 +47,15 @@ namespace BankApplication
         {
             ApplicationWindow1.Visible = false;
         }
+
+        protected void CloseWindow(object sender, EventArgs a)
+        {
+            MainWindow.closeAccount = null;
+        }
+        
+        public void VisibleWindow()
+        {
+            ApplicationWindow1.Visible = true;
+        }
     }
 }

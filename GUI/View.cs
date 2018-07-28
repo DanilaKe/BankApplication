@@ -46,5 +46,11 @@ namespace BankApplication
         {
             Dialog1.Visible = false;
         }
+        
+        public void VisibleWindow()
+        {
+            textbuffer1.Text = bank.View();
+            Dialog1.Visible = true;
+        }
     }
 }

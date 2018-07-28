@@ -90,5 +90,10 @@ namespace BankApplication
         {
             new DialogWindow(e);
         }
+
+        public void VisibleWindow()
+        {
+            ApplicationWindow1.Visible = true;
+        }
     }
 }
