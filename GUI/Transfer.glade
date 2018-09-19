@@ -5,6 +5,7 @@
   <object class="GtkWindow" id="Window1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <signal name="destroy" handler="CloseWindow" swapped="no"/>
     <child>
       <object class="GtkGrid">
         <property name="visible">True</property>
@@ -214,6 +215,7 @@
                 <property name="margin_bottom">6</property>
                 <property name="use_stock">True</property>
                 <property name="always_show_image">True</property>
+                <signal name="clicked" handler="ButtonTransfer" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">1</property>
